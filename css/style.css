@@ -1,0 +1,116 @@
+@charset "utf-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root{
+    --color00: #D35E59;
+    --color01: #ECB8B6;
+    --color02: #C7AA91;
+    --color03: #F6E3E2;
+    --color04: #DCDDDE;
+
+    --poppins: 'Poppins', sans-serif;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: var(--poppins);
+}
+
+header{
+    background-color: var(--color00);
+    color: white;
+    width: 100vw;
+    height: 70px;
+    display: flex;
+    justify-content: space-evenly;  
+}
+
+.logo{
+    width: 200px;
+    transform: translateY(-10px);
+}
+
+h1{
+    margin-top: 15px;
+    font-weight: normal;
+}
+
+/* [ == botao de adicionar == ]*/ 
+.button-container{
+    max-width: 850px;
+    margin: 35px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;    
+}
+
+.add-btn{
+    background-color: var(--color00);
+    border: none;
+    color: white;
+    padding: 18px 45px;
+    border-radius: 10px;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.add-btn:hover{
+    background-color: var(--color01);
+    color: var(--color00);
+}
+
+/* [ == tabela == ] */
+main{
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+.table-header{
+    background-color: var(--color01);   
+}
+
+.table-header-data{
+    width: 170px;
+}
+
+.table-item-data{
+    border: 1px solid var(--color02);
+}
+
+.action-btn{
+    display: flex;
+    justify-content: space-around;
+    color: var(--color00);
+}
+
+/* [== MODAL ==] */
+#fade{
+    background-color: rgba(0,0,0,0.6);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
+#modal{
+    background-color: white;
+    max-width: 850px;
+    height: 200px;
+
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    z-index: 4;
+}
