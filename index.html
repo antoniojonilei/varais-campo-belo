@@ -16,7 +16,8 @@
             <img class="logo" src="img/logo.png" alt="logo varaios campo belo">
         </div>
         <div class="titulo">
-            <h1>Cadastro de Clientes</h1>            
+            <h1>Cadastro de Clientes</h1> 
+                      
         </div>       
     </header>
 
@@ -56,10 +57,13 @@
             </tr>
         </table>
 
-        <div id="fade"></div>
-        <div id="modal">
+        <div id="fade" class="hiden"></div>
+        <div id="modal" class="hiden">
             <div class="modal-container">
-                <h2>Dados do Cadastro</h2>
+                <div class="form-header">
+                    <h2>Dados do Cadastro</h2>
+                    <button class="fechar-btn">Fechar</button> 
+                </div>
                 <form id="cadastro-cliente">
 
                     <div class="aba-endereco">
@@ -128,8 +132,41 @@
                                 <input id="cpf" type="text" name="cpf">
                             </div>
                         </div>
-                    </div>                   
-
+                        <div>
+                            <label for="email">E-mail:</label>
+                            <input id="email" type="text" name="email">
+                        </div>
+                    </div>  
+                    <hr>
+                    <div class="aba-pesquisa">
+                        <h4>Pesquisa: Como tomou conhecimento de nossa loja?</h4>
+                        <div class="flex-pesquisa">
+                            <select name="pesquisa" id="pesquisa">
+                                <option value="cliente">Cliente</option>
+                                <option value="folder">Folder</option>
+                                <option value="ima">Imã</option>
+                                <option value="indicacao">Indicação</option>
+                                <option value="google">Google</option>
+                                <option value="facebook">Facebook</option>
+                                <option value="instagram">Instagram</option>
+                                <option value="arquitetos">Arquitetos</option>
+                                <option value="grupo-condominio">Grupo Condominio</option>
+                                <option value="etiqueta">Etiqueta</option>
+                            </select>
+                            <div>
+                                <label for="outro">Outro:</label>
+                                <input id="outro" type="text" name="outro">
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="aba-pedidos">
+                        <h3>Pedidos: </h3>
+                        <textarea name="pedidos" id="pediso" cols="30" rows="10"></textarea>
+                    </div>
+                    <div class="buton-container">
+                        <button id="submit-btn" type="submit">Cadastrar</button>
+                    </div>
                 </form>
             </div>
         </div>
