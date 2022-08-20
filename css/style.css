@@ -104,8 +104,9 @@ main{
 
 #modal{
     background-color: white;
-    max-width: 850px;
-    height: 200px;
+    width: 850px;
+    height: 700x;
+    border-radius: 10px;  
 
     position: fixed;
     top: 50%;
@@ -113,4 +114,69 @@ main{
     transform: translate(-50%, -50%);
 
     z-index: 4;
+
+    border: 2px solid red;
 }
+
+/*  [== formulario ==]  */
+.modal-container{
+    padding: 20px;        
+}
+
+.modal-container h2{
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.aba-endereco,
+.aba-dados-pessoa{
+    /* border: 1px solid var(--color01); */
+    border-radius: 10px;
+    padding: 20px 10px;
+    font-size: 1.2em;
+    line-height: 1.5em;    
+}
+
+.number-flex,
+.flex-dados,
+.fone-flex{
+    display: flex;
+}
+
+input{
+    height: 25px;
+    border: 0.5px solid var(--color02);
+    border-radius: 5px;
+    width: 180px;
+    margin: 0 5px;
+}
+
+#endereco{
+    width: 91%;
+}
+
+#nome-ed{
+    width: 84.7%;
+}
+
+#bairro{
+    width: 88.5%;
+}
+
+hr{
+    border: 1px solid var(--color01);
+}
+
+#data,
+#hora,
+#ate{
+    width: 196px;
+}
+
+#nome{
+    width: 88.3%;
+}
+
+/* #fone,
+#cel,
+#cpf */
