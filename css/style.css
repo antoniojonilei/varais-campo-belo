@@ -270,3 +270,24 @@ textarea{
     background-color: var(--color01);
     color: var(--color00);
 }
+
+.client-title{
+    background-color: #D35E59;
+    color: white;
+}
+
+.edit-btn,
+.trash-btn{
+    border: none;
+    padding: 3px 25px;
+    border-radius: 2px;
+    color: var(--color00);
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+.edit-btn:hover,
+.trash-btn:hover{
+    background-color: #D35E59;
+    color: white;
+}

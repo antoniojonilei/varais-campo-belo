@@ -1,24 +1,28 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- font-awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+        integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <link rel="stylesheet" href="/css/style.css">
     <title>Varais Campo Belo - Server</title>
 </head>
+
 <body>
     <header>
         <div class="header-img">
             <img class="logo" src="img/logo.png" alt="logo varaios campo belo">
         </div>
         <div class="titulo">
-            <h1>Cadastro de Clientes</h1> 
-                      
-        </div>       
+            <h1>Cadastro de Clientes</h1>
+
+        </div>
     </header>
 
     <div class="button-container">
@@ -27,34 +31,85 @@
         </button>
     </div>
 
-    <main>
+    <main id="main-client-list">
+
+        <div id="main-content">
+
+        </div>
+
+
         <table>
+            <!-- dados a serem inseridos -->
+
             <thead>
                 <tr class="table-header">
-                    <td class="table-header-data">ID</td>
                     <td class="table-header-data">Endereço</td>
-                    <td class="table-header-data">Nome</td>
-                    <td class="table-header-data">Pesquisa</td>
-                    <td class="table-header-data">Pedidos</td> 
-                    <td class="table-header-data">Ação</td> 
-                                       
+                    <td class="table-header-data">Número</td>
+                    <td class="table-header-data">Apto</td>
+                    <td class="table-header-data">Torre</td>
+                    <td class="table-header-data">Nome Ed</td>
+                    <td class="table-header-data">Bairro</td>
                 </tr>
             </thead>
+            <tbody>
+                <tr class="table-item">
+                    <td class="table-item-data">client.endereco</td>
+                    <td class="table-item-data">client.numero</td>
+                    <td class="table-item-data">client.apto</td>
+                    <td class="table-item-data">client.torre</td>
+                    <td class="table-item-data">client.nome-ed</td>
+                    <td class="table-item-data">client.bairro</td>
+                </tr>
+            </tbody>
+            <thead>
+                <tr class="table-header">
+                    <td class="table-header-data">Data</td>
+                    <td class="table-header-data">Hora</td>
+                    <td class="table-header-data">Ate</td>
+                    <td class="table-header-data">Nome</td>
+                    <td class="table-header-data">Fone</td>
+                    <td class="table-header-data">Cel</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="table-item">
+                    <td class="table-item-data">client.data</td>
+                    <td class="table-item-data">client.hora</td>
+                    <td class="table-item-data">client.ate</td>
+                    <td class="table-item-data">client.nome</td>
+                    <td class="table-item-data">client.fone</td>
+                    <td class="table-item-data">client.cel</td>
+                </tr>
+            </tbody>
+            <thead>
+                <tr class="table-header">
+                    <td class="table-header-data">E-mail</td>
+                    <td class="table-header-data">CPF</td>
+                    <td class="table-header-data">Pesquisa</td>
+                    <td class="table-header-data">Outro</td>
+                    <td class="table-header-data">Pedidos</td>
+                    <td class="table-header-data">Ação</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="table-item">
+                    <td class="table-item-data">client.email</td>
+                    <td class="table-item-data">client.cpf</td>
+                    <td class="table-item-data">client.pesquisa</td>
+                    <td class="table-item-data">client.outro</td>
+                    <td class="table-item-data">client.pedidos</td>
+                    <td class="table-item-data">
+                        <div class="action-btn">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                            <i class="fa-solid fa-trash"></i>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
 
-            <!-- dados a serem inseridos -->
-            <tr class="table-item">
-                <td class="table-item-data">dado01</td>
-                <td class="table-item-data">dado02</td>
-                <td class="table-item-data">dado03</td>
-                <td class="table-item-data">dado04</td>
-                <td class="table-item-data">dado05</td>
-                <td class="table-item-data">
-                    <div class="action-btn">
-                        <i class="fa-solid fa-pen-to-square"></i>
-                        <i class="fa-solid fa-trash"></i>
-                    </div>
-                </td>
-            </tr>
+           
+
+            <!-- // dados a serem inseridos -->
         </table>
 
         <div id="fade" class="hiden"></div>
@@ -62,7 +117,7 @@
             <div class="modal-container">
                 <div class="form-header">
                     <h2>Dados do Cadastro</h2>
-                    <button class="fechar-btn">Fechar</button> 
+                    <button class="fechar-btn">Fechar</button>
                 </div>
                 <form id="cadastro-cliente">
 
@@ -71,7 +126,7 @@
                         <div>
                             <label id="label-endereco" for="endereco">End:</label>
                             <input id="endereco" type="text" name="endereco">
-                        </div>                     
+                        </div>
                         <div class="number-flex">
                             <div>
                                 <label id="label-numero" for="numero">Número:</label>
@@ -136,7 +191,7 @@
                             <label id="label-email" for="email">E-mail:</label>
                             <input id="email" type="text" name="email">
                         </div>
-                    </div>  
+                    </div>
                     <hr>
                     <div class="aba-pesquisa">
                         <h4>Pesquisa: Como tomou conhecimento de nossa loja?</h4>
@@ -174,4 +229,5 @@
 
     <script src="js/script.js"></script>
 </body>
+
 </html>
