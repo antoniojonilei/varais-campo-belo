@@ -76,3 +76,60 @@ function updateFillClient(client) {
 
     console.log(client)
 }
+
+
+// [== MODELO ==]
+// const tempClient = {
+//     id: '',
+//     endereco: {
+//         end: '',
+//         numero: '',
+//         apto: '',
+//         torre: '',
+//         nomeEd: '',
+//         bairro: '',
+//     },
+//     dados: {
+//         data: '',
+//         hora: '',
+//         ate: '',
+//         nome: '',
+//         fone: '',
+//         cel: '',
+//         email:'',
+//         cpf: ''
+//     },
+//     pesquisa: {
+//         conheceu: ''
+//     },
+//     pedidos: ''
+// }
+
+
+// let tempClient = {
+//     endereco: 'joao',
+//     numero: '56',
+//     apto: '98',
+//     torre: 'grande',
+//     nomeEd: 'calrto',
+//     bairro: 'teste',
+//     data: 'teste',
+//     hora: 'teste',
+//     ate: 'teste',
+//     nome: 'teste',
+//     fone: 'teste',
+//     cel: 'teste',
+//     cpf: 'teste',
+//     email:'teste',
+//     pesquisa: '',
+//     outro: 'teste mano',
+//     pedido: 'teste mano',
+// }
+
+// $endereco.addEventListener('click', () => {
+//     $endereco.value = 'Ola'
+// })
+
+
+// <td class="table-header-data">Nome</td>
+//             <td class="table-item-data">${client.nome}</td>
