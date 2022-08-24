@@ -274,6 +274,7 @@ textarea{
 .client-title{
     background-color: #D35E59;
     color: white;
+    margin-top: 15px;
 }
 
 .edit-btn,

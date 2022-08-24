@@ -10,6 +10,27 @@ const $form = document.querySelector('#cadastro-cliente')
 
 const $mainContent = document.querySelector('#main-content')
 
+
+let $endereco = document.querySelector('#endereco')
+let $numero = document.querySelector('#numero')
+let $apto = document.querySelector('#apto')
+let $torre = document.querySelector('#torre')
+let $nomeEd = document.querySelector('#nome-ed')
+let $bairro = document.querySelector('#bairro')
+let $data = document.querySelector('#data')
+let $hora = document.querySelector('#hora')
+let $ate = document.querySelector('#ate')
+let $nome = document.querySelector('#nome')
+let $fone = document.querySelector('#fone')
+let $cel = document.querySelector('#cel')
+let $cpf = document.querySelector('#cpf')
+let $email = document.querySelector('#email')
+let $pesquisa = document.querySelector('#pesquisa')
+let $outro = document.querySelector('#outro')
+let $pedido = document.querySelector('#pedido')
+
+
+
 function toggleModal() {
     clearForm()
     $fade.classList.toggle('hiden')
@@ -43,7 +64,8 @@ function createClient(client) {
 //user
 function clearForm() {
     const field = document.querySelectorAll('input')
-    console.log(field)
+    $pedido.value = ''
+    // console.log(field)
     field.forEach((field) => {
         field.value = ""
     })
@@ -74,10 +96,21 @@ function saveData(event) {
         pedido: document.querySelector('#pedido').value
     }
 
-    createClient(client)
-    clearForm()
-    loadPage()
-    toggleModal()
+    const index = document.querySelector('#endereco', '#numero', '#apto', '#torre', '#nome-ed', '#bairro', '#data', '#hora', '#ate', '#nome', '#fone', '#cel', '#cpf', '#email', '#pesquisa', '#outro', '#pedido').dataset.index
+
+    if(index == 'new') {
+        createClient(client)
+        clearForm()
+        loadPage()
+        toggleModal()
+    } else {
+        // console.log('Botão ...... Editando......')
+        updateClient(index, client)
+        loadPage()
+        toggleModal()
+    }
+
+    
 }
 
 function addNewClient(client, index) {
@@ -95,7 +128,7 @@ function addNewClient(client, index) {
             <td class="table-header-data">Nome Ed</td>
             <td class="table-header-data">Bairro</td>  
         </tr>
-        <tr class="class="table-item"">
+        <tr class="class="table-item">
             <td class="table-item-data">${client.endereco}</td>
             <td class="table-item-data">${client.numero}</td>
             <td class="table-item-data">${client.apto}</td>
@@ -111,7 +144,7 @@ function addNewClient(client, index) {
             <td class="table-header-data">Fone</td>
             <td class="table-header-data">Cel</td>
         </tr>
-        <tr class="class="table-item"">
+        <tr class="class="table-item">
             <td class="table-item-data">${client.data}</td>
             <td class="table-item-data">${client.hora}</td>
             <td class="table-item-data">${client.ate}</td>
@@ -124,15 +157,14 @@ function addNewClient(client, index) {
             <td class="table-header-data">CPF</td>
             <td class="table-header-data">Pesquisa</td>
             <td class="table-header-data">Outro</td>
-            <td class="table-header-data">Pedidos</td>
+            
             <td class="table-header-data">Ação</td>
         </tr>
-        <tr class="class="table-item"">
+        <tr class="class="table-item">
             <td class="table-item-data">${client.email}</td>
             <td class="table-item-data">${client.cpf}</td>
             <td class="table-item-data">${client.pesquisa}</td>
-            <td class="table-item-data">${client.outro}</td>
-            <td class="table-item-data">${client.pedido}</td>
+            <td class="table-item-data">${client.outro}</td>            
             <td class="table-item-data">
                 <div class="action-btn">
                     <button type="button" class="edit-btn" id="edit-${index}">
@@ -143,6 +175,12 @@ function addNewClient(client, index) {
                     </i>
                 </div>
             </td>                    
+        </tr>
+        <tr class="table-header pedidos">
+            <td class="table-header-data">Pedidos</td>
+        </tr>
+        <tr class="class="table-item">
+            <td class="table-item-data">${client.pedido}</td>
         </tr>
     </table>
     
@@ -165,30 +203,54 @@ function loadPage() {
 }
 
 function updateFillClient(client) {
-    document.querySelector('#endereco').value = client.endereco
-    document.querySelector('#numero').value = client.numero
-    document.querySelector('#apto').value = client.apto
-    document.querySelector('#torre').value = client.torre
-    document.querySelector('#nome-ed').value = client.nomeEd
-    document.querySelector('#bairro').value = client.bairro
-    document.querySelector('#data').value = client.data
-    document.querySelector('#hora').value = client.hora
-    document.querySelector('#ate').value = client.ate
-    document.querySelector('#nome').value = client.nome
-    document.querySelector('#fone').value = client.fone
-    document.querySelector('#cel').value = client.cel
-    document.querySelector('#cpf').value = client.cpf
-    document.querySelector('#email').value = client.email
-    document.querySelector('#pesquisa').value = client.pesquisa
-    document.querySelector('#outro').value = client.outro
-    document.querySelector('#pedido').value = client.pedido
+    console.log(client)
 }
 
 function editClient(index) {
     const client = getLocalStorage()[index]
+    client.index = index
     updateFillClient(client)
     toggleModal()
     // console.log(client)
+
+    $endereco.value = client.endereco
+    $numero.value = client.numero
+    $apto.value = client.apto
+    $torre.value = client.torre
+    $nomeEd.value = client.nomeEd
+    $bairro.value = client.bairro
+    $data.value = client.data
+    $hora.value = client.hora
+    $ate.value = client.ate
+    $nome.value = client.nome
+    $fone.value = client.fone
+    $cel.value = client.cel
+    $cpf.value = client.cpf
+    $email.value = client.email
+    $pesquisa.value = client.pesquisa
+    $outro.value = client.outro
+    $pedido.value = client.pedido
+
+    $endereco.dataset.index = client.index
+    $numero.dataset.index = client.index
+    $apto.dataset.index = client.index
+    $torre.dataset.index = client.index
+    $nomeEd.dataset.index = client.index
+    $bairro.dataset.index = client.index
+    $data.dataset.index = client.index
+    $hora.dataset.index = client.index
+    $ate.dataset.index = client.index
+    $nome.dataset.index = client.index
+    $fone.dataset.index = client.index
+    $cel.dataset.index = client.index
+    $cpf.dataset.index = client.index
+    $email.dataset.index = client.index
+    $pesquisa.dataset.index = client.index
+    $outro.dataset.index = client.index
+    $pedido.dataset.index = client.index
+
+    
+    
 }
 
 function updateDeleteClient(event) {
@@ -196,8 +258,10 @@ function updateDeleteClient(event) {
         const [ action, index ] = event.target.id.split('-')
         
         if(action == 'edit') {
-            console.log('editando')
+            // console.log('editando')
             editClient(index)
+
+            
         } else {
             console.log('excluindo')
         }
@@ -262,3 +326,7 @@ $mainContent.addEventListener('click', updateDeleteClient)
 //     outro: 'teste mano',
 //     pedido: 'teste mano',
 // }
+
+// $endereco.addEventListener('click', () => {
+//     $endereco.value = 'Ola'
+// })

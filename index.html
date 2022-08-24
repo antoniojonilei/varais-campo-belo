@@ -34,13 +34,11 @@
     <main id="main-client-list">
 
         <div id="main-content">
-
+            <!-- dados a serem inseridos -->
         </div>
 
 
-        <table>
-            <!-- dados a serem inseridos -->
-
+        <!-- <table>
             <thead>
                 <tr class="table-header">
                     <td class="table-header-data">Endereço</td>
@@ -105,12 +103,8 @@
                         </div>
                     </td>
                 </tr>
-            </tbody>
-
-           
-
-            <!-- // dados a serem inseridos -->
-        </table>
+            </tbody>         
+        </table> -->
 
         <div id="fade" class="hiden"></div>
         <div id="modal" class="hiden">
@@ -125,29 +119,29 @@
 
                         <div>
                             <label id="label-endereco" for="endereco">End:</label>
-                            <input id="endereco" type="text" name="endereco">
+                            <input id="endereco" data-index="new" type="text" name="endereco">
                         </div>
                         <div class="number-flex">
                             <div>
                                 <label id="label-numero" for="numero">Número:</label>
-                                <input id="numero" class="numero-apt-torre" type="text" name="numero">
+                                <input id="numero" class="numero-apt-torre" data-index="new" type="text" name="numero">
                             </div>
                             <div>
                                 <label id="label-apto" for="apto">Apto:</label>
-                                <input id="apto" class="numero-apt-torre" type="text" name="apto">
+                                <input id="apto" class="numero-apt-torre" data-index="new" type="text" name="apto">
                             </div>
                             <div>
                                 <label id="label-torre" for="torre">Torre:</label>
-                                <input id="torre" class="numero-apt-torre" type="text" name="torre">
+                                <input id="torre" class="numero-apt-torre" data-index="new" type="text" name="torre">
                             </div>
                         </div>
                         <div>
                             <label id="label-nome-ed" for="nome-ed">Nome Ed:</label>
-                            <input id="nome-ed" type="text" name="nome-ed">
+                            <input id="nome-ed" data-index="new" type="text" name="nome-ed">
                         </div>
                         <div>
                             <label id="label-bairro" for="bairro">Bairro:</label>
-                            <input id="bairro" type="text" name="bairro">
+                            <input id="bairro" data-index="new" type="text" name="bairro">
                         </div>
 
                     </div> <!-- aba-endereco -->
@@ -156,40 +150,40 @@
                         <div class="flex-dados">
                             <div>
                                 <label id="label-data" for="data">Data:</label>
-                                <input id="data" type="date" name="data">
+                                <input id="data" data-index="new" type="date" name="data">
                             </div>
                             <div>
                                 <label id=label-hora for="hora">Hora:</label>
-                                <input id="hora" name="hora" type="text" placeholder="
+                                <input id="hora" name="hora" data-index="new" type="text" placeholder="
                                 hh:mm">
                             </div>
                             <div>
                                 <label id="label-ate" for="ate">Até:</label>
-                                <input id="ate" name="ate" type="text" placeholder="
+                                <input id="ate" name="ate" data-index="new" type="text" placeholder="
                                 hh:mm">
                             </div>
                         </div>
                         <div>
                             <label id="label-nome" for="nome">Nome:</label>
-                            <input id="nome" type="text" name="nome">
+                            <input id="nome" data-index="new" type="text" name="nome">
                         </div>
                         <div class="fone-flex">
                             <div>
                                 <label id="label-fone" for="fone">Fone:</label>
-                                <input id="fone" type="text" name="fone">
+                                <input id="fone" data-index="new" type="text" name="fone">
                             </div>
                             <div>
                                 <label id="label-cel" for="cel">Cel:</label>
-                                <input id="cel" type="text" name="cel">
+                                <input id="cel" data-index="new" type="text" name="cel">
                             </div>
                             <div>
                                 <label id="label-cpf" for="cpf">CPF:</label>
-                                <input id="cpf" type="text" name="cpf">
+                                <input id="cpf" data-index="new" type="text" name="cpf">
                             </div>
                         </div>
                         <div>
                             <label id="label-email" for="email">E-mail:</label>
-                            <input id="email" type="text" name="email">
+                            <input id="email" data-index="new" type="text" name="email">
                         </div>
                     </div>
                     <hr>
@@ -210,14 +204,14 @@
                             </select>
                             <div>
                                 <label id="label-outro" for="outro">Outro:</label>
-                                <input id="outro" type="text" name="outro">
+                                <input id="outro" data-index="new" type="text" name="outro">
                             </div>
                         </div>
                     </div>
                     <hr>
                     <div class="aba-pedidos">
                         <h3>Pedidos: </h3>
-                        <textarea name="pedidos" id="pedido" cols="30" rows="10"></textarea>
+                        <textarea name="pedidos" id="pedido" data-index="new" cols="30" rows="10"></textarea>
                     </div>
                     <div class="buton-container">
                         <button id="submit-btn" type="submit">Cadastrar</button>
