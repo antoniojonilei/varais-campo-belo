@@ -103,15 +103,13 @@ main{
 
 #modal{
     background-color: white;
-    width: 850px;
-    /* height: 700x; */
+    width: 850px;    
     border-radius: 10px;  
 
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-
     z-index: 4;   
 }
 
@@ -151,7 +149,6 @@ main{
     padding: 10px 50px;
     border-radius: 10px;
     transition: 0.3s;
-
     cursor: pointer; 
 }
 
@@ -170,7 +167,6 @@ main{
 .aba-dados-pessoa,
 .aba-pesquisa,
 .aba-pedidos{
-    /* border: 1px solid var(--color01); */
     border-radius: 10px;
     padding: 20px 10px;
     font-size: 1.2em;
@@ -249,10 +245,7 @@ textarea{
 }
 
 /* [ == button == ] */
-.pdf-btn{
-    background-color: white;
-    border: none;
-}
+
 
 .buton-container{
     display: flex;
@@ -263,22 +256,18 @@ textarea{
 
 #submit-btn{
     background-color: var(--color03);
-    border: 1px solid var(--color03);
-   
+    border: 1px solid var(--color03);   
     color: white;
     padding: 10px 50px;
     border-radius: 10px;
     transition: 0.3s;
-
-    cursor: pointer;  
-    
+    cursor: pointer;      
 }
 
 #submit-btn:hover{
     border: 1px solid var(--color00);
     background-color: var(--color00);
-    color: white;
-    
+    color: white;    
 }
 
 #js-pdf{
@@ -288,7 +277,6 @@ textarea{
     padding: 10px 50px;    
     border-radius: 10px;
     transition: 0.3s;
-
     cursor: pointer; 
 }
 
@@ -305,10 +293,6 @@ textarea{
     padding: 6px 0 6px 15px;
 }
 
-/* .pedidos{
-    font-weight: bold;
-} */
-
 .edit-btn,
 .trash-btn{
     border: none;
@@ -321,6 +305,26 @@ textarea{
 
 .edit-btn:hover,
 .trash-btn:hover{
-    background-color: #D35E59;
+    background-color: var(--color03);
+    color: white;
+}
+
+.pdf-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pdf-container button{
+    border: none;
+    padding: 5px 60px;
+    cursor: pointer;
+    background-color: var(--color00);
+    color: white;
+    border-radius: 4px;
+}
+
+.pdf-container button:hover{
+    background-color: var(--color03);
     color: white;
 }

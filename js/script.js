@@ -1,18 +1,13 @@
 const $addBtn = document.querySelector('.add-btn')
 const $closeBtn = document.querySelector('.fechar-btn')
-
 const $pdfButton = document.querySelector('#js-pdf')
-
 const $fade = document.querySelector('#fade')
 const $modal = document.querySelector('#modal')
-
 const $submitBtn = document.querySelector('#submit-btn')
-
 const $form = document.querySelector('#cadastro-cliente')
-
 const $mainContent = document.querySelector('#main-content')
 
-
+//form fields
 let $endereco = document.querySelector('#endereco')
 let $numero = document.querySelector('#numero')
 let $apto = document.querySelector('#apto')
@@ -30,8 +25,6 @@ let $email = document.querySelector('#email')
 let $pesquisa = document.querySelector('#pesquisa')
 let $outro = document.querySelector('#outro')
 let $pedido = document.querySelector('#pedido')
-
-
 
 function toggleModal() {
     clearForm()
@@ -67,18 +60,16 @@ function createClient(client) {
 function clearForm() {
     const field = document.querySelectorAll('input')
     $pedido.value = ''
-    // console.log(field)
+
     field.forEach((field) => {
         field.value = ""
     })
 }
 
 function saveData(event) {
-    event.preventDefault()
+    event.preventDefault()  
 
-    console.log('savando dados')
-
-    let client = {        
+    let client = {
         endereco: document.querySelector('#endereco').value,
         numero: document.querySelector('#numero').value,
         apto: document.querySelector('#apto').value,
@@ -100,19 +91,19 @@ function saveData(event) {
 
     const index = document.querySelector('#endereco', '#numero', '#apto', '#torre', '#nome-ed', '#bairro', '#data', '#hora', '#ate', '#nome', '#fone', '#cel', '#cpf', '#email', '#pesquisa', '#outro', '#pedido').dataset.index
 
-    if(index == 'new') {
+    if (index == 'new') {
         createClient(client)
         clearForm()
         loadPage()
         toggleModal()
+
     } else {
-        // console.log('Botão ...... Editando......')
         updateClient(index, client)
         loadPage()
         toggleModal()
     }
 
-    
+
 }
 
 function addNewClient(client, index) {
@@ -120,11 +111,7 @@ function addNewClient(client, index) {
     newClientRow.classList.add('table-items')
     newClientRow.innerHTML = `
 
-    <p class="client-title">Nome: ${client.nome}
-    <button type="button" class"pdf-btn" id="js-pdf-${index}">
-        <i class="fa-solid fa-download"></i>        
-    </button>        
-    </p>        
+    <p class="client-title">Nome: ${client.nome}</p>        
     
     <table>
         <tr class="table-header">
@@ -155,11 +142,9 @@ function addNewClient(client, index) {
         </tr>
         <tr class="class="table-item">
             <td class="table-item-data">${client.bairro}</td> 
-
             <td class="table-item-data">${client.data}</td>
             <td class="table-item-data">${client.hora}</td>
-            <td class="table-item-data">${client.ate}</td>
-            
+            <td class="table-item-data">${client.ate}</td>            
             <td class="table-item-data">${client.fone}</td>
             <td class="table-item-data">${client.cel}</td>         
         </tr>
@@ -167,8 +152,7 @@ function addNewClient(client, index) {
             <td colspan="2" class="table-header-data">E-mail</td>
             <td class="table-header-data">CPF</td>
             <td class="table-header-data">Pesquisa</td>
-            <td class="table-header-data">Outro</td>
-            
+            <td class="table-header-data">Outro</td>            
             <td class="table-header-data">Ação</td>
         </tr>
         <tr class="class="table-item">
@@ -188,7 +172,12 @@ function addNewClient(client, index) {
             </td>                    
         </tr>
         <tr class="table-header">
-            <td colspan="6" class="table-header-data">Pedidos</td>
+            <td colspan="5" class="table-header-data">Pedidos</td>
+            <td class="pdf-container">    
+                <button type="button" class"pdf-btn" id="download-${index}">
+                    PDF      
+                </button> 
+            </td>
         </tr>
         <tr class="class="table-item">
             <td colspan="6" class="table-item-data pedidos">${client.pedido}</td>
@@ -222,7 +211,6 @@ function editClient(index) {
     client.index = index
     updateFillClient(client)
     toggleModal()
-    // console.log(client)
 
     $endereco.value = client.endereco
     $numero.value = client.numero
@@ -258,36 +246,72 @@ function editClient(index) {
     $email.dataset.index = client.index
     $pesquisa.dataset.index = client.index
     $outro.dataset.index = client.index
-    $pedido.dataset.index = client.index    
-    
+    $pedido.dataset.index = client.index
+
 }
 
 function updateDeleteClient(event) {
-    if(event.target.type == 'button') {
-        const [ action, index ] = event.target.id.split('-')
-        
-        if(action == 'edit') {
-            // console.log('editando')
+    if (event.target.type == 'button') {
+        const [action, index] = event.target.id.split('-')
+
+        if (action == 'edit') {
             editClient(index)
-            
-        }else if(action == 'delete'){
+
+        } else if (action == 'download') {
+            const client = getLocalStorage()[index]
+            const response = confirm(`Baixar PDF ${client.nome}`)
+            if(response) {
+                createPdf(index)
+            }   
+
+        } else {
             const client = getLocalStorage()[index]
             const response = confirm(`Excluir o cliente ${client.nome}`)
 
-            if(response) {
+            if (response) {
                 console.log('excluindo')
                 deleteClient(index)
                 loadPage()
-            }            
-        }else{
-            console.log('gerar pdf')
-        }          
-        
-    }    
+            }
+        }
+
+    }
 }
 
-function createPdf() {
-    console.log('gerar pdf')
+function createPdf(index) {
+    
+    const client = getLocalStorage()[index]
+    const doc = new jsPDF()
+
+    doc.text(`
+    ${client.nome}, ${client.data}
+
+    Endereço : ${client.endereco}
+    Número : ${client.numero}
+    Apartamento : ${client.apto}
+    Torre : ${client.torre} 
+    Nome Edificio : ${client.nomeEd}
+    Bairro : ${client.bairro}
+
+    Data : ${client.data}
+    Hora : ${client.hora}
+    Até : ${client.ate}
+
+    Nome : ${client.nome}
+    Fone : ${client.fone}
+    Cel : ${client.cel}
+    CPF : ${client.cpf}
+    E-mail : ${client.email}
+
+    Pesquisa : ${client.pesquisa}
+    Outro : ${client.outro}
+    Pedido : 
+    ${client.pedido} 
+      
+    `, 10, 10)
+
+    doc.save(`${client.nome}-${client.data}.pdf`)   
+
 }
 
 loadPage()
@@ -295,7 +319,5 @@ loadPage()
 //eventos
 $addBtn.addEventListener('click', toggleModal)
 $closeBtn.addEventListener('click', toggleModal)
-
 $submitBtn.addEventListener('click', saveData)
-
 $mainContent.addEventListener('click', updateDeleteClient)
