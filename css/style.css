@@ -6,6 +6,7 @@
     --color00: #D35E59;
     --color01: #ECB8B6;
     --color02: #C7AA91;
+    --color03: #a12521;
 
     --poppins: 'Poppins', sans-serif;
 }
@@ -248,15 +249,22 @@ textarea{
 }
 
 /* [ == button == ] */
+.pdf-btn{
+    background-color: white;
+    border: none;
+}
+
 .buton-container{
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 50px;
 }
 
 #submit-btn{
-    border: none;
-    background-color: var(--color00);
+    background-color: var(--color03);
+    border: 1px solid var(--color03);
+   
     color: white;
     padding: 10px 50px;
     border-radius: 10px;
@@ -267,8 +275,27 @@ textarea{
 }
 
 #submit-btn:hover{
+    border: 1px solid var(--color00);
+    background-color: var(--color00);
+    color: white;
+    
+}
+
+#js-pdf{
+    border: 1px solid var(--color03);
     background-color: var(--color01);
-    color: var(--color00);
+    color: var(--color03);
+    padding: 10px 50px;    
+    border-radius: 10px;
+    transition: 0.3s;
+
+    cursor: pointer; 
+}
+
+#js-pdf:hover{
+    background-color: gray;
+    color: white;
+    border: 1px solid gray;
 }
 
 .client-title{

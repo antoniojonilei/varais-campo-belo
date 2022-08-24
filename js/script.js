@@ -1,6 +1,8 @@
 const $addBtn = document.querySelector('.add-btn')
 const $closeBtn = document.querySelector('.fechar-btn')
 
+const $pdfButton = document.querySelector('#js-pdf')
+
 const $fade = document.querySelector('#fade')
 const $modal = document.querySelector('#modal')
 
@@ -118,7 +120,12 @@ function addNewClient(client, index) {
     newClientRow.classList.add('table-items')
     newClientRow.innerHTML = `
 
-    <p class="client-title">Nome: ${client.nome}</p>
+    <p class="client-title">Nome: ${client.nome}
+    <button type="button" class"pdf-btn" id="js-pdf-${index}">
+        <i class="fa-solid fa-download"></i>        
+    </button>        
+    </p>        
+    
     <table>
         <tr class="table-header">
             <td colspan="2" class="table-header-data">Endereço</td>
@@ -175,8 +182,8 @@ function addNewClient(client, index) {
                         <i class="fa-solid fa-pen-to-square"></i>
                     </button>
                     <button type="button" class="trash-btn" id="delete-${index}">
-                        <i class="fa-solid fa-trash">
-                    </i>
+                        <i class="fa-solid fa-trash"></i>                    
+                    </button>                   
                 </div>
             </td>                    
         </tr>
@@ -263,7 +270,7 @@ function updateDeleteClient(event) {
             // console.log('editando')
             editClient(index)
             
-        } else {
+        }else if(action == 'delete'){
             const client = getLocalStorage()[index]
             const response = confirm(`Excluir o cliente ${client.nome}`)
 
@@ -272,8 +279,15 @@ function updateDeleteClient(event) {
                 deleteClient(index)
                 loadPage()
             }            
-        }
+        }else{
+            console.log('gerar pdf')
+        }          
+        
     }    
+}
+
+function createPdf() {
+    console.log('gerar pdf')
 }
 
 loadPage()
