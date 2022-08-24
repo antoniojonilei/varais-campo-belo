@@ -251,9 +251,7 @@ function editClient(index) {
     $email.dataset.index = client.index
     $pesquisa.dataset.index = client.index
     $outro.dataset.index = client.index
-    $pedido.dataset.index = client.index
-
-    
+    $pedido.dataset.index = client.index    
     
 }
 
@@ -264,13 +262,18 @@ function updateDeleteClient(event) {
         if(action == 'edit') {
             // console.log('editando')
             editClient(index)
-
             
         } else {
-            console.log('excluindo')
+            const client = getLocalStorage()[index]
+            const response = confirm(`Excluir o cliente ${client.nome}`)
+
+            if(response) {
+                console.log('excluindo')
+                deleteClient(index)
+                loadPage()
+            }            
         }
-    }
-    
+    }    
 }
 
 loadPage()
