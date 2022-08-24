@@ -275,7 +275,12 @@ textarea{
     background-color: #D35E59;
     color: white;
     margin-top: 15px;
+    padding: 6px 0 6px 15px;
 }
+
+/* .pedidos{
+    font-weight: bold;
+} */
 
 .edit-btn,
 .trash-btn{

@@ -118,42 +118,46 @@ function addNewClient(client, index) {
     newClientRow.classList.add('table-items')
     newClientRow.innerHTML = `
 
-    <p class="client-title">Cliente: ${client.nome}</p>
+    <p class="client-title">Nome: ${client.nome}</p>
     <table>
         <tr class="table-header">
-            <td class="table-header-data">Endereço</td>
+            <td colspan="2" class="table-header-data">Endereço</td>
             <td class="table-header-data">Número</td>
             <td class="table-header-data">Apto</td>
             <td class="table-header-data">Torre</td>
             <td class="table-header-data">Nome Ed</td>
-            <td class="table-header-data">Bairro</td>  
+              
         </tr>
         <tr class="class="table-item">
-            <td class="table-item-data">${client.endereco}</td>
+            <td colspan="2" class="table-item-data">${client.endereco}</td>
             <td class="table-item-data">${client.numero}</td>
             <td class="table-item-data">${client.apto}</td>
             <td class="table-item-data">${client.torre}</td>
             <td class="table-item-data">${client.nomeEd}</td>
-            <td class="table-item-data">${client.bairro}</td>         
+                    
         </tr>
         <tr class="table-header">
+        <td class="table-header-data">Bairro</td>
             <td class="table-header-data">Data</td>
             <td class="table-header-data">Hora</td>
             <td class="table-header-data">Ate</td>
-            <td class="table-header-data">Nome</td>
+            
+            
             <td class="table-header-data">Fone</td>
             <td class="table-header-data">Cel</td>
         </tr>
         <tr class="class="table-item">
+            <td class="table-item-data">${client.bairro}</td> 
+
             <td class="table-item-data">${client.data}</td>
             <td class="table-item-data">${client.hora}</td>
             <td class="table-item-data">${client.ate}</td>
-            <td class="table-item-data">${client.nome}</td>
+            
             <td class="table-item-data">${client.fone}</td>
             <td class="table-item-data">${client.cel}</td>         
         </tr>
         <tr class="table-header">
-            <td class="table-header-data">E-mail</td>
+            <td colspan="2" class="table-header-data">E-mail</td>
             <td class="table-header-data">CPF</td>
             <td class="table-header-data">Pesquisa</td>
             <td class="table-header-data">Outro</td>
@@ -161,7 +165,7 @@ function addNewClient(client, index) {
             <td class="table-header-data">Ação</td>
         </tr>
         <tr class="class="table-item">
-            <td class="table-item-data">${client.email}</td>
+            <td colspan="2" class="table-item-data">${client.email}</td>
             <td class="table-item-data">${client.cpf}</td>
             <td class="table-item-data">${client.pesquisa}</td>
             <td class="table-item-data">${client.outro}</td>            
@@ -176,11 +180,11 @@ function addNewClient(client, index) {
                 </div>
             </td>                    
         </tr>
-        <tr class="table-header pedidos">
-            <td class="table-header-data">Pedidos</td>
+        <tr class="table-header">
+            <td colspan="6" class="table-header-data">Pedidos</td>
         </tr>
         <tr class="class="table-item">
-            <td class="table-item-data">${client.pedido}</td>
+            <td colspan="6" class="table-item-data pedidos">${client.pedido}</td>
         </tr>
     </table>
     
@@ -330,3 +334,7 @@ $mainContent.addEventListener('click', updateDeleteClient)
 // $endereco.addEventListener('click', () => {
 //     $endereco.value = 'Ola'
 // })
+
+
+// <td class="table-header-data">Nome</td>
+//             <td class="table-item-data">${client.nome}</td>
