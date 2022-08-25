@@ -52,8 +52,7 @@ function updateClient(index, client) {
 function createClient(client) {
     const dbClient = getLocalStorage()
     dbClient.push(client)
-    setLocalStorage(dbClient)
-    console.log(dbClient)
+    setLocalStorage(dbClient)    
 }
 
 //user
@@ -203,7 +202,7 @@ function loadPage() {
 }
 
 function updateFillClient(client) {
-    console.log(client)
+    // console.log(client)
 }
 
 function editClient(index) {
@@ -269,7 +268,7 @@ function updateDeleteClient(event) {
             const response = confirm(`Excluir o cliente ${client.nome}`)
 
             if (response) {
-                console.log('excluindo')
+                
                 deleteClient(index)
                 loadPage()
             }
